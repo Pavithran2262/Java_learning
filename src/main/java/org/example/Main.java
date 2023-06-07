@@ -13,9 +13,9 @@ public class Main
     public static void main( String[] args )
     {
         demo a = new demo();
-        a.setId(10);
-        a.setName1("Mariana");
-        a.setTech("php");
+        a.setId(11);
+        a.setName1("kain");
+        a.setTech("flutter");
 
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
@@ -23,8 +23,11 @@ public class Main
 
 
         demo b = em.find(demo.class,1);
+//                                                      demo c = em.remove();
         em.getTransaction().begin();
-        em.persist(a);
+        demo d= em.find(demo.class,2);
+        em.remove(d);
+//        em.persist(b);
         em.getTransaction().commit();
 
         System.out.println(a);
